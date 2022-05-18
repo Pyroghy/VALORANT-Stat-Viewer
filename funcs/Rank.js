@@ -52,7 +52,7 @@ class Rank {
 
             for (const i in competitiveStats) {
                 if (competitiveStats[i].Rank > peak) {
-                    peak = competitiveStats[i].Rank
+                    peak = competitiveStats[i].Rank;
                 }
             }
 
@@ -69,7 +69,7 @@ class Rank {
     }
 
     async getPlayerRank(puuid) {
-        const competitiveTiers = await this.getCompetitiveTiers()
+        const competitiveTiers = await this.getCompetitiveTiers();
         const playerCompetitive = await this.getPlayerMMR(puuid);
 
         for (let i = 0; i < competitiveTiers.length; i++) {
@@ -89,10 +89,10 @@ class Rank {
         const red = this.players.Red;
 
         for (let i = 0; i < blue.length; i++) {
-            const rankData = await this.getPlayerRank(blue[i].puuid)
+            const rankData = await this.getPlayerRank(blue[i].puuid);
             this.matchPlayers.Blue.push({
                 puuid: blue[i].puuid,
-                ign: `${blue[i].name}#${blue[i].tag}`,
+                ign: blue[i].ign,
                 level: blue[i].level,
                 character: blue[i].character,
                 stats: {
@@ -107,7 +107,7 @@ class Rank {
         }
 
         for (let i = 0; i < red.length; i++) {
-            const rankData = await this.getPlayerRank(red[i].puuid)
+            const rankData = await this.getPlayerRank(red[i].puuid);
             this.matchPlayers.Red.push({
                 puuid: red[i].puuid,
                 ign: `${red[i].name}#${red[i].tag}`,

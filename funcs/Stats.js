@@ -5,13 +5,13 @@ class Stats {
         this.region = user.region;
         this.version = user.version;
         this.entitlements = user.entitlements;
-        this.players = match.matchData
+        this.players = match.matchData;
     }
 
     async getPlayerStats(team) {
         for (let i = 0; i < team.length; i++) {
             const matches = team[i].matches;
-            const puuid = team[i].puuid
+            const puuid = team[i].puuid;
 
             let wins = 0;
             let kills = 0;
@@ -20,8 +20,7 @@ class Stats {
             let shots = 0;
             let headshots = 0;
 
-            let name = "";
-            let tag = "";
+            let ign = "";
 
             for (let m = 0; m < matches.length; m++) {
                 const res = await fetch(`https://pd.${this.region}.a.pvp.net/match-details/v1/matches/${matches[m]}`, {
@@ -41,8 +40,7 @@ class Stats {
 
                 for (let p = 0; p < players.length; p++) {
                     if (players[p].subject === puuid) {
-                        name = players[p].gameName;
-                        tag = players[p].tagLine;
+                        ign = `${players[p].gameName}#${players[p].tagLine}`;
                         kills += players[p].stats.kills;
                         deaths += players[p].stats.deaths;
 
@@ -60,14 +58,13 @@ class Stats {
                     const roundDamage = round.damage;
 
                     for (let d = 0; d < roundDamage.length; d++) {
-                        shots += roundDamage[d].legshots + roundDamage[d].bodyshots + roundDamage[d].headshots
-                        headshots += roundDamage[d].headshots
+                        shots += roundDamage[d].legshots + roundDamage[d].bodyshots + roundDamage[d].headshots;
+                        headshots += roundDamage[d].headshots;
                     }
                 }
             }
 
-            team[i].name = name;
-            team[i].tag = tag;
+            team[i].ign = ign
             team[i].stats = {
                 headshot: `${Math.round((headshots / shots) * 100)}%`,
                 win: `${Math.round((wins / matches.length) * 100)}%`,
@@ -77,11 +74,8 @@ class Stats {
     }
 
     async run() {
-        const blue = this.players.Blue;
-        const red = this.players.Red;
-
-        await this.getPlayerStats(blue)
-        await this.getPlayerStats(red)
+        await this.getPlayerStats(this.players.Blue);
+        await this.getPlayerStats(this.players.Red);
     }
 }
 

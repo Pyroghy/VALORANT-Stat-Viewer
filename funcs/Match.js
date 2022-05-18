@@ -42,7 +42,7 @@ class Match {
         const json = await res.json();
         */
 
-        const json = JSON.parse(fs.readFileSync('./temp/ma2.json', 'utf-8'))
+        const json = JSON.parse(fs.readFileSync('./temp/ma2.json', 'utf-8'));
         const players = json.Players;
 
         for (let i = 0; i < players.length; i++) {
@@ -89,8 +89,8 @@ class Match {
     }
 
     async run() {
-        await this.currentMatchData()
-        await this.playerMatches()
+        await this.currentMatchData();
+        await this.playerMatches();
     }
 }
 
