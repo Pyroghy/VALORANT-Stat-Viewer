@@ -29,7 +29,6 @@ class Match {
     }
 
     async currentMatchData() {
-        /*
         const match = await this.getCurrentMatch();
         const res = await fetch(`https://glz-${this.region}-1.${this.region}.a.pvp.net/core-game/v1/matches/${match}`, {
             method: "GET",
@@ -40,9 +39,6 @@ class Match {
         });
 
         const json = await res.json();
-        */
-
-        const json = JSON.parse(fs.readFileSync('./temp/ma2.json', 'utf-8'));
         const players = json.Players;
 
         for (let i = 0; i < players.length; i++) {
