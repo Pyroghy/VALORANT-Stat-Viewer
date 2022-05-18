@@ -1,0 +1,17 @@
+{
+  "name": "valorant-rank-checker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Pyroghy",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^18.2.3",
+    "node-fetch": "^2.6.6"
+  }
+}
