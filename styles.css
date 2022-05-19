@@ -1,0 +1,107 @@
+body {
+    margin: 0px;
+}
+
+#display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+
+    background-color: #3B444B;
+
+    font-family: 'Segoe UI';
+}
+
+.teams {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 50vw;
+}
+
+.players {
+    display: grid;
+    row-gap: 3vh;
+}
+
+.player {
+    display: grid;
+    grid-template-columns: 21% 58% 21%;
+
+    height: 12vh;
+    width: 33vw;
+
+    background-color: #2F363C;
+
+    margin: 0px 0px -2px -2px;
+    border-top-left-radius: 2vw;
+    border-bottom-right-radius: 2vw;
+    border-bottom: 2px solid #343c42;
+    border-left: 2px solid #343c42;
+
+    box-shadow: .5vh .5vh 2vh;
+}
+
+.agent-info {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    height: 12vh;
+}
+
+.player-info {
+    display: grid;
+    grid-template-rows: 40% 60%;
+    background-color: #3B444B;
+    transform: skewX(-20deg);
+    height: 12vh;
+}
+
+.details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #343c42;
+   
+    font-weight: bold;
+    font-size: 100%;
+}
+
+.details span {
+    transform: skewX(20deg);
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    align-items: center;
+    transform: skewX(20deg);
+    text-align: center;
+    font-size: 90%;
+    font-weight: bold;
+}
+
+.player-rank {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    height: 12vh;
+}
+
+.img {
+    background-color: white;
+    border-radius: 2vw;
+    outline: 1px solid;
+    margin-top: .5vh;
+    height: 9vh;
+    width: 9vh;
+}
+
+.value {
+    text-align: center;
+    font-size: 60%;
+    font-weight: bold;
+}
