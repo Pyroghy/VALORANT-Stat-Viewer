@@ -20,7 +20,7 @@ function createWindow() {
     })
 
     //window.webContents.openDevTools()
-    window.loadFile('index.html')
+    window.loadFile('./web/index.html')
 }
 
 app.whenReady().then(() => {

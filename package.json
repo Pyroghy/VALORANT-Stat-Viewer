@@ -10,7 +10,7 @@
   "author": "Pyroghy",
   "license": "MIT",
   "dependencies": {
-    "electron": "^18.2.4",
+    "electron": "^19.0.4",
     "node-fetch": "^2.6.6"
   }
 }

@@ -1,0 +1,250 @@
+body {
+    user-select: none;
+    margin: 0px;
+}
+
+#display {
+    align-items: center;
+    justify-content: center;
+
+    height: 720px;
+    width: 1280px;
+    
+    background-color: #1c1c1c;
+    font-family: 'Segoe UI';
+}
+
+#info-bar {
+    display: grid;
+    grid-auto-flow: column;
+
+    align-items: center;
+    text-align: center;
+
+    height: 50px;
+    width: 1280px;
+    
+    background-color: aqua;
+}
+
+#match {
+    display: grid;
+    grid-auto-flow: column;
+
+    height: 670px;
+    width: 1280px;
+}
+
+.teams {
+    display: grid;
+    
+    justify-content: center;
+    align-content: center;
+
+    height: 670px;
+    width: 640px;
+}
+
+.players {
+    display: grid;
+    row-gap: 16px;
+    
+    align-items: center;
+    justify-content: center;
+}
+
+.player {
+    display: grid;
+    grid-auto-flow: column;
+    
+    height: 90px;
+    width: 420px;
+
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+
+    margin-bottom: -2px;
+    margin-left: -2px;
+    
+    background-color: #262626;
+}
+
+/* player module */
+
+.player-info {
+    display: grid;
+    grid-auto-flow: row;
+
+    height: 90px;
+    width: 320px;
+
+    border-top-left-radius: 20px;
+}
+
+.top {
+    display: grid;
+    grid-auto-flow: column;
+
+    height: 70px;
+    width: 320px;
+}
+
+.info {
+    display: grid;
+    grid-auto-flow: column;
+
+    height: 70px;
+    width: 320px;
+}
+
+.basic {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    height: 70px;
+    width: 60px;
+
+    margin-top: 6px;
+}
+
+.basic img {
+    display: grid;
+    grid-auto-flow: row;
+
+    height: 40px;
+    width: 40px;
+
+    margin-bottom: -2px;
+}
+
+.basic span {
+    height: 14px;
+    width: 30px;
+
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+
+    background-color: #1c1c1c;
+    border-radius: 20px;
+}
+
+.container {
+    display: grid;
+    align-items: center;
+
+    height: 70px;
+    width: 260px;
+
+    color: white;
+    font-size: 12px;
+    text-align: left;
+}
+
+.main {
+    align-items: center;
+    margin-top: 4px;
+}
+
+.stats span {
+    display: inline-block;
+}
+
+.name {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.bottom {
+    display: grid;
+    grid-auto-flow: column;
+    
+    align-items: center;
+    justify-content: center;
+
+    height: 20px;
+    width: 320px;
+    
+    margin-top: -14px;
+}
+
+.wins {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 20px;
+    width: 160px;
+}
+
+.results {
+    display: grid;
+    grid-auto-flow: column;
+
+    align-items: center;
+    justify-content: center;
+    
+    height: 18px;
+    width: 110px;
+
+    margin-left: 50px;
+
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+
+    background-color: #1c1c1c;
+    border-radius: 20px;
+}
+
+.results span {
+    display: inline-block;
+    
+    width: 18px;
+}
+
+.peak {
+    height: 20px;
+    width: 160px;
+
+    margin-left: -10px;
+    padding-left: 8px;
+
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.rank {
+    display: grid;
+    grid-auto-flow: row;
+
+    align-items: center;
+    justify-content: center;
+
+    height: 90px;
+    width: 100px;
+}
+
+.rank img {
+    height: 60px;
+    width: 60px;
+
+    margin-bottom: -8px;
+}
+
+.rank span {
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+
+    background-color: #1c1c1c;
+    border-radius: 20px;
+}
