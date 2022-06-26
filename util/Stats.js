@@ -1,6 +1,9 @@
-const { getMatchHistory } = require('./Match.js');
 const fetch = require('../modules/fetch');
 const self = process.app;
+
+async function getMatchHistory(puuid) {
+    return fetch(`https://pd.${self.region}.a.pvp.net/match-history/v1/history/${puuid}?endIndex=5`).then(data => data.History.map(match => match.MatchID));
+}
 
 async function getPlayerStats(puuid) {
     let wins = [];
@@ -68,7 +71,7 @@ async function getPlayerRank(puuid) {
             rank.peakColor = competitivePeak.color;
 
             if (competitiveStats[self.season]) {
-                const competitiveRank = competitiveTiers.find(e => e.tier === competitiveStats[self.season].Rank);
+                const competitiveRank = competitiveTiers.find(e => e.tier === competitiveStats[self.season].CompetitiveTier);
                 rank.rankImage = competitiveRank.smallIcon;
                 rank.rankRating = competitiveStats[self.season].RankedRating;
                 return { rank }

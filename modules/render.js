@@ -4,16 +4,16 @@ function createPlayerModule(parent, player, color) {
     playerDiv.style.borderBottom = `2px solid ${color}`;
     playerDiv.style.borderLeft = `2px solid ${color}`;
     playerDiv.innerHTML = `
-        <section class="player-info">
-            <section class="top">
-                <section class="info">
-                    <section class="basic">
+        <div class="player-info">
+            <div class="top">
+                <div class="info">
+                    <div class="basic">
                         <img src="https://media.valorant-api.com/agents/${player.characterId}/displayicon.png">
                         <span>${player.level}</span>
-                    </section>
+                    </div>
 
-                    <section class="container">
-                        <section class="main">
+                    <div class="container">
+                        <div class="main">
                             <span class="name">${player.username}</span>
 
                             <div class="stats">
@@ -22,13 +22,13 @@ function createPlayerModule(parent, player, color) {
                                 <span style="text-indent: 15px"><b>${player.stats.adr}</b> ADR</span>
                                 <span style="text-indent: 15px"><b>${player.stats.acs}</b> ACS</span>
                             </div>
-                        </section>
-                    </section>
-                </section>
-            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            <section class="bottom">
-                <section class="wins">
+            <div class="bottom">
+                <div class="wins">
                     <div class="results">
                         <span style="color: ${player.wins[0] ? 'lightgreen">W' : 'crimson">L'}</span>
                         <span style="color: ${player.wins[1] ? 'lightgreen">W' : 'crimson">L'}</span>
@@ -36,16 +36,16 @@ function createPlayerModule(parent, player, color) {
                         <span style="color: ${player.wins[3] ? 'lightgreen">W' : 'crimson">L'}</span>
                         <span style="color: ${player.wins[4] ? 'lightgreen">W' : 'crimson">L'}</span>
                     </div>
-                </section>
+                </div>
             
                 <span class="peak" style="color: #${player.rank.peakColor}">${player.rank.peak} PEAK</span>
-            </section>
-        </section>
+            </div>
+        </div>
 
-        <section class="rank">
+        <div class="rank">
             <img src="${player.rank.rankImage}">
             <span>${player.rank.rankRating} RR</span>
-        </section>
+        </div>
     `;
 
     parent.appendChild(playerDiv);
@@ -73,9 +73,15 @@ function render(gameState, matchData) {
     const parties = matchData.map(e => e.party);
     const partyColors = getPartyColor(parties);
 
-    console.log(partyColors)
+    const player = document.getElementsByClassName('player');
 
     if (gameState === 'pregame') {
+        if (player.length >= 1) {
+            for (let i = 0; i < player.length; i++) {
+                player[i].parentNode.removeChild(player[i]);
+            }
+        }
+
         for (let i = 0; i < matchData.length; i++) {
             createPlayerModule(blue, matchData[i], partyColors[matchData[i].party] || '#262626');
         }
@@ -84,6 +90,12 @@ function render(gameState, matchData) {
     if (gameState === 'core-game') {
         const blueTeam = matchData.filter(e => e.team === 'Blue');
         const redTeam = matchData.filter(e => e.team === 'Red');
+
+        if (player.length >= 1) {
+            for (let i = 0; i < player.length; i++) {
+                player[i].parentNode.removeChild(player[i]);
+            }
+        }
 
         if (redTeam.length === 0) {
             // can make this look better

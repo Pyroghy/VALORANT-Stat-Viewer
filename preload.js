@@ -8,7 +8,7 @@ process.app.season = "";
 process.app.puuid = "";
 
 const client = require('./util/Client');
-const player = require('./util/Player');
+const match = require('./util/Match');
 const content = require('./util/content');
 const { getPlayerPresence } = require('./util/Presences');
 const render = require('./modules/render');
@@ -25,11 +25,11 @@ window.addEventListener('load', async () => {
             game = status;
 
             if (status === 'PREGAME') {
-                const matchData = await player.getPlayers('pregame');
+                const matchData = await match.getPlayers('pregame');
                 render('pregame', matchData);
             }
             if (status === 'INGAME') {
-                const matchData = await player.getPlayers('core-game');
+                const matchData = await match.getPlayers('core-game');
                 render('core-game', matchData);
             }
         }

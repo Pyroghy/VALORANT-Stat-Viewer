@@ -14,24 +14,11 @@ body {
     font-family: 'Segoe UI';
 }
 
-#info-bar {
-    display: grid;
-    grid-auto-flow: column;
-
-    align-items: center;
-    text-align: center;
-
-    height: 50px;
-    width: 1280px;
-    
-    background-color: aqua;
-}
-
 #match {
     display: grid;
     grid-auto-flow: column;
 
-    height: 670px;
+    height: 720px;
     width: 1280px;
 }
 
@@ -41,7 +28,7 @@ body {
     justify-content: center;
     align-content: center;
 
-    height: 670px;
+    height: 720px;
     width: 640px;
 }
 
