@@ -26,10 +26,20 @@ async function fetch(url, headers = {}) {
         }
     }
     if (url.startsWith('https://127')) {
-        return nodeFetch(url, { method: "GET", headers: headers }).then(res => res.json()).then(data => data);
+        return nodeFetch(url, { method: "GET", headers: headers }).then(res => {
+            if (res.ok) {
+                const data = res.json();
+                return data;
+            }
+        });
     }
 
-    return nodeFetch(url, { method: "GET", headers: headers }).then(res => res.json()).then(data => data);
+    return nodeFetch(url, { method: "GET", headers: headers }).then(res => {
+        if (res.ok) {
+            const data = res.json();
+            return data;
+        }
+    });
 }
 
 module.exports = fetch;
