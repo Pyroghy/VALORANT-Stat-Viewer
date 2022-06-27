@@ -73,13 +73,12 @@ function render(gameState, matchData) {
     const parties = matchData.map(e => e.party);
     const partyColors = getPartyColor(parties);
 
-    const player = document.getElementsByClassName('player');
+    const playerClass = document.getElementsByClassName('player');
 
     if (gameState === 'pregame') {
-        if (player.length >= 1) {
-            for (let i = 0; i < player.length; i++) {
-                player[i].parentNode.removeChild(player[i]);
-            }
+        if (playerClass.length >= 1) {
+            const players = document.querySelectorAll('.player');
+            players.forEach(player => player.remove());
         }
 
         for (let i = 0; i < matchData.length; i++) {
@@ -91,10 +90,9 @@ function render(gameState, matchData) {
         const blueTeam = matchData.filter(e => e.team === 'Blue');
         const redTeam = matchData.filter(e => e.team === 'Red');
 
-        if (player.length >= 1) {
-            for (let i = 0; i < player.length; i++) {
-                player[i].parentNode.removeChild(player[i]);
-            }
+        if (playerClass.length >= 1) {
+            const players = document.querySelectorAll('.player');
+            players.forEach(player => player.remove());
         }
 
         if (redTeam.length === 0) {
